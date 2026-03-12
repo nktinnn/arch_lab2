@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: blockchain-client
+  namespace: blockchain
+  labels:
+    app: blockchain-client
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: blockchain-client
+  template:
+    metadata:
+      labels:
+        app: blockchain-client
+    spec:
+      containers:
+        - name: client
+          image: 192.168.1.200:5000/archlabs/blockchain-client:v1.8-amd64
+          imagePullPolicy: IfNotPresent
+          env:
+            - name: CLIENT_PORT
+              value: "8081"
+          ports:
+            - containerPort: 8081
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 8081
+            initialDelaySeconds: 5
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 8081
+            initialDelaySeconds: 15
+            periodSeconds: 20
+

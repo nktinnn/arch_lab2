@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: blockchain-server
+  namespace: blockchain
+  labels:
+    app: blockchain-server
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: blockchain-server
+  template:
+    metadata:
+      labels:
+        app: blockchain-server
+    spec:
+      containers:
+        - name: server
+          image: 192.168.1.200:5000/archlabs/blockchain-server:v1.8-amd64
+          imagePullPolicy: IfNotPresent
+          env:
+            - name: SERVER_PORT
+              value: "8080"
+          ports:
+            - containerPort: 8080
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 8080
+            initialDelaySeconds: 5
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 8080
+            initialDelaySeconds: 15
+            periodSeconds: 20
+

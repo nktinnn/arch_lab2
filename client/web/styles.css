@@ -1,0 +1,318 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, sans-serif;
+  background: linear-gradient(160deg, #eef6ff, #f7f9fc);
+  color: #17202a;
+}
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 32px 24px;
+}
+
+h1 {
+  font-size: 22px;
+  margin: 0 0 6px;
+  color: #0b4a9e;
+  letter-spacing: 0.3px;
+}
+
+.muted {
+  color: #7a8a9a;
+  font-size: 13px;
+  margin: 0 0 20px;
+}
+
+.card {
+  background: #ffffff;
+  border: 1px solid #d7e0ea;
+  border-radius: 14px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.card h2 {
+  font-size: 15px;
+  margin: 0 0 14px;
+  color: #1a2d45;
+}
+
+
+button {
+  cursor: pointer;
+  border: 0;
+  border-radius: 8px;
+  font-size: 14px;
+  padding: 9px 18px;
+}
+
+/* Wallet block */
+.wallet-row {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+select {
+  flex: 1;
+  padding: 9px 12px;
+  border-radius: 8px;
+  border: 1px solid #c8d2de;
+  font-size: 14px;
+  background: #fff;
+  outline: none;
+  cursor: pointer;
+}
+
+select:focus {
+  border-color: #0b67d0;
+}
+
+.wallet-status {
+  margin-top: 12px;
+  font-size: 13px;
+  min-height: 20px;
+  padding: 0;
+}
+
+.wallet-status--loading {
+  color: #7a8a9a;
+}
+
+.wallet-status--success {
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-radius: 8px;
+  padding: 8px 12px;
+  color: #15803d;
+}
+
+.wallet-status--success code {
+  background: #dcfce7;
+  padding: 1px 5px;
+  border-radius: 4px;
+  font-size: 12px;
+}
+
+.wallet-status--error {
+  background: #fff1f2;
+  border: 1px solid #fecdd3;
+  border-radius: 8px;
+  padding: 8px 12px;
+  color: #be123c;
+}
+
+.wallet-mine {
+  font-weight: 600;
+  color: #0b4a9e;
+}
+
+#loadBtn {
+  background: #0b67d0;
+  color: #fff;
+  font-weight: 600;
+}
+
+#loadBtn:hover {
+  background: #0952a8;
+}
+
+.btn-decrypt {
+  background: #f0f5ff;
+  color: #0b67d0;
+  border: 1px solid #c0d4f5;
+  padding: 5px 12px;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.btn-decrypt:hover:not(:disabled) {
+  background: #ddeaff;
+}
+
+.btn-decrypt:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.status {
+  margin-top: 10px;
+  font-size: 13px;
+  color: #5a6a7a;
+  min-height: 18px;
+}
+
+/* Badges */
+.badge {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+}
+
+.badge--asset {
+  background: #e8f0fe;
+  color: #1a56db;
+}
+
+.badge--ok {
+  background: #dcfce7;
+  color: #16a34a;
+}
+
+.badge--bad {
+  background: #fee2e2;
+  color: #dc2626;
+}
+
+.badge--na {
+  background: #f1f5f9;
+  color: #64748b;
+}
+
+/* Table */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 14px;
+  font-size: 13px;
+}
+
+th {
+  background: #f4f8ff;
+  color: #4a5a6a;
+  font-weight: 600;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 10px 8px;
+  border-bottom: 2px solid #dde8f5;
+  text-align: left;
+}
+
+td {
+  border-bottom: 1px solid #edf2f8;
+  padding: 10px 8px;
+  vertical-align: top;
+}
+
+tr:hover td {
+  background: #f8fbff;
+}
+
+td.amount {
+  font-weight: 600;
+  color: #1a3a5c;
+  white-space: nowrap;
+}
+
+td.time {
+  color: #7a8a9a;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.cipher-preview {
+  font-family: "Courier New", monospace;
+  font-size: 11px;
+  color: #8a9aaa;
+  cursor: help;
+  border-bottom: 1px dashed #c0c8d4;
+}
+
+/* Decrypt result */
+.decrypt-result {
+  margin-top: 6px;
+  font-size: 12px;
+  min-height: 0;
+  max-width: 260px;
+  word-break: break-word;
+}
+
+.decrypt-result.loading {
+  color: #7a8a9a;
+}
+
+.decrypt-result.success {
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-radius: 6px;
+  padding: 6px 10px;
+  color: #15803d;
+  font-family: "Courier New", monospace;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.btn-decrypt--locked {
+  background: #f8f8f8;
+  color: #aaa;
+  border: 1px solid #e0e0e0;
+  cursor: not-allowed;
+}
+
+.decrypt-result.hint {
+  color: #aaa;
+  font-size: 11px;
+  font-style: italic;
+}
+
+.decrypt-result.error {
+  background: #fff1f2;
+  border: 1px solid #fecdd3;
+  border-radius: 6px;
+  padding: 6px 10px;
+  color: #be123c;
+  font-size: 12px;
+}
+
+.pagination {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 14px;
+}
+
+.page-btn {
+  min-width: 34px;
+  padding: 5px 10px;
+  font-size: 13px;
+  background: #f4f8ff;
+  color: #0b4a9e;
+  border: 1px solid #c0d4f5;
+  border-radius: 6px;
+}
+
+.page-btn:hover:not(:disabled) {
+  background: #ddeaff;
+}
+
+.page-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.page-btn--active {
+  background: #0b67d0;
+  color: #fff;
+  border-color: #0b67d0;
+  font-weight: 600;
+}
+
+@media (max-width: 700px) {
+  .container {
+    padding: 16px 12px;
+  }
+
+  th, td {
+    padding: 8px 5px;
+  }
+}

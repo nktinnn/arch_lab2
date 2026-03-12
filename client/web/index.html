@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blockchain Tx Viewer</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <main class="container">
+    <h1>Blockchain Tx Viewer</h1>
+    <p class="muted">Войдите в кошелёк, чтобы получать зашифрованные транзакции. Подпись проверяется по JWKS.</p>
+
+    <section class="card">
+      <h2>🔑 Кошелёк</h2>
+      <div class="wallet-row">
+        <select id="walletSelect">
+          <option value="wallet-001">wallet-001</option>
+          <option value="wallet-002">wallet-002</option>
+          <option value="wallet-003">wallet-003</option>
+        </select>
+        <button id="connectBtn">Подключить</button>
+      </div>
+      <div id="walletStatus" class="wallet-status"></div>
+    </section>
+
+    <section class="card">
+      <h2>Транзакции</h2>
+      <button id="loadBtn">Загрузить</button>
+      <div id="txStatus" class="status"></div>
+      <div id="pagination" class="pagination"></div>
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Wallet</th>
+            <th>Asset</th>
+            <th>Amount</th>
+            <th>Time</th>
+            <th>Подпись</th>
+            <th>Ciphertext</th>
+            <th>Расшифровка</th>
+          </tr>
+        </thead>
+        <tbody id="txBody"></tbody>
+      </table>
+    </section>
+  </main>
+  <script src="/rsa.js"></script>
+  <script src="/app.js"></script>
+</body>
+</html>

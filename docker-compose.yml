@@ -1,0 +1,20 @@
+services:
+  server:
+    build:
+      context: ./server
+    container_name: archlab2-server
+    environment:
+      - SERVER_PORT=8080
+    ports:
+      - "8080:8080"
+
+  client:
+    build:
+      context: ./client
+    container_name: archlab2-client
+    environment:
+      - CLIENT_PORT=8081
+    ports:
+      - "8081:8081"
+    depends_on:
+      - server

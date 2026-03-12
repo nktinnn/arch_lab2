@@ -1,0 +1,48 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: blockchain-ingress
+  namespace: blockchain
+  annotations:
+    kubernetes.io/ingress.class: nginx
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: bc.nktinn.ru
+      http:
+        paths:
+          - path: /auth
+            pathType: Prefix
+            backend:
+              service:
+                name: blockchain-server
+                port:
+                  number: 80
+          - path: /getJWKS
+            pathType: Prefix
+            backend:
+              service:
+                name: blockchain-server
+                port:
+                  number: 80
+          - path: /transactions
+            pathType: Prefix
+            backend:
+              service:
+                name: blockchain-server
+                port:
+                  number: 80
+          - path: /health
+            pathType: Prefix
+            backend:
+              service:
+                name: blockchain-server
+                port:
+                  number: 80
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: blockchain-client
+                port:
+                  number: 80
